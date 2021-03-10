@@ -9,9 +9,11 @@ int main()
 {
 	using namespace Graph_lib;
 
-	Simple_window win {Point{100, 100}, 1200, 700, "Canvas"};
-
-	Rectangle rect1 {Point{450,100}, 100, 50};	//1
+	const int sw_height = 1080;
+	const int sw_width = 1920;
+	Simple_window win {Point{100, 100}, sw_width, sw_height, "Canvas"};
+	//1. feladat
+	Rectangle rect1 {Point{450,100}, 100, 50};	
 	rect1.set_color(Color::red);
 	win.attach(rect1);
 
@@ -23,16 +25,20 @@ int main()
 	poly.set_color(Color::blue);
 	win.attach(poly);
 	win.wait_for_button();
+	win.set_label("Canvas");
 
-	Rectangle rect2 {Point{20,40}, 100, 30};	//2
+	//2. feladat
+	Rectangle rect2 {Point{20,40}, 100, 30};	
 	win.attach(rect2);
 
 	Text t {Point(42, 60), "Howdy!"};
 	win.attach(t);
 	win.wait_for_button();
+	win.set_label("Canvas");
 
-	Text initial1 {Point{295, 550}, "K"};		//3 hogyan tudnék vastag vonalakat szedni rá?
-	Text initial2 {Point{330, 550}, "B"};
+	//3. feladat
+	Text initial1 {Point{1095, 150}, "K"};		
+	Text initial2 {Point{1130, 150}, "B"};
 	initial1.set_font(Font::times_bold);
 	initial2.set_font(Font::times_bold);
 	initial1.set_font_size(40);
@@ -42,6 +48,7 @@ int main()
 	win.attach(initial1);
 	win.attach(initial2);
 	win.wait_for_button();
+	win.set_label("Canvas");
 
 	//4 - 3x3 tic tac toe board
 	Rectangle white_base {Point{800, 50}, 150, 150};
@@ -63,12 +70,22 @@ int main()
 	win.attach(red_sq_4);
 
 	win.wait_for_button();
+	win.set_label("Canvas");
 
-	//5
+	//5. feladat
+	Rectangle rect_adjusted_to_screensize {Point{500, 100}, ((sw_width/3)*2)+134, ((sw_height/4)*3)+134};
+	rect_adjusted_to_screensize.set_style(Line_style(Line_style::solid, 134));
+	rect_adjusted_to_screensize.set_color(Color::cyan); //szándékosan raktam más színre piros helyett, hogy ne ütközzenek egymásba a szines alakzatok
+	win.attach(rect_adjusted_to_screensize);
+	win.wait_for_button();
+	win.set_label("Canvas");
+	//6. feladat
+	Rectangle rect_too_large{Point{50,100}, 2000, 1200};
+	win.attach(rect_too_large);
+	win.wait_for_button();
+	win.set_label("Canvas");
 
-	//6
-
-	//house - 7
+	//house - 7. feladat
 	Rectangle house_chimney{Point{770,320}, 20, 100};
 	house_chimney.set_fill_color(Color::dark_red);
 	win.attach(house_chimney);
@@ -95,13 +112,10 @@ int main()
 	win.attach(house_window1);
 	win.attach(house_window2);
 
-	
-
 	win.wait_for_button();
+	win.set_label("Canvas");
 
-
-
-	//olympic 5 rings
+	//olympic 5 rings - 8. feladat
 	Circle r1 {Point{100, 200}, 100};
 	r1.set_color(Color::blue);
 	Circle r2 {Point{350, 200}, 100};
@@ -126,8 +140,13 @@ int main()
 	win.attach(r5);
 
 	win.wait_for_button();
+	win.set_label("Canvas");
 
-
-
-	
+	//9. feladat - photo display
+	Image pic {Point{700,600}, "car.jpg"};
+	win.attach(pic);
+	Text caption {Point{693, 820}, "A 200x200 pic of a red Toyota"};
+	win.attach(caption);
+	win.set_label("Car");
+	win.wait_for_button();
 }
