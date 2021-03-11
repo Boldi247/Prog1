@@ -19,6 +19,25 @@ struct D2 : D1{
 	void pvf() override {cout << "D2::pvf()\n";}
 };
 
+struct B2{
+	virtual void pvf() = 0;
+};
+
+struct D21 : B2{
+	string s = "valami";
+	void pvf() override {cout << s << endl;}
+};
+
+
+struct D22 : B2{
+	int i = 40;
+	void pvf() override {cout << i << endl;}
+};
+
+void f(B2& b1){
+	b1.pvf();
+};
+
 int main()
 {
 	B1 b1;
@@ -43,6 +62,12 @@ int main()
 	d2.vf();
 	d2.f();
 	d2.pvf();
+	cout << endl;
+
+	D21 d21;
+	D22 d22;
+	f(d21);
+	f(d22);
 
 	return 0;
 }
