@@ -51,7 +51,7 @@ void Smiley::draw_lines() const
 	fl_arc(point(0).x + radius() / 1.3, 
 		point(0).y + radius(), radius() / 2, radius() / 2, 240, 300);
 
-	// for drawing the "face"
+	// for drawing the face
 	Circle::draw_lines();
 }
 
@@ -68,6 +68,6 @@ void Frowny::draw_lines() const
 	fl_arc(point(0).x + radius() / 1.3,
 		point(0).y + radius() * 1.5, radius() / 2, radius() / 2, 45, 135);
 
-	// for drawing the "face"
+	// for drawing the face
 	Circle::draw_lines();
 }
