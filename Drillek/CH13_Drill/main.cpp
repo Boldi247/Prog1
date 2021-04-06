@@ -60,6 +60,7 @@ int main()
 			move_x = -700;
 		}
 		win.wait_for_button();
+		win.set_label("CH13_Drill");
 		pic.move(move_x, move_y);
 		move_counter++;
 		move_y = 0;
