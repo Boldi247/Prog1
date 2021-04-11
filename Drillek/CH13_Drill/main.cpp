@@ -16,7 +16,7 @@ int main()
 
 	//making the grid
 	constexpr int grid_size = 100;
-	constexpr int grid_max = 800;
+	constexpr int grid_max = 800;	
 	Lines grid;
 	for (int x = grid_size; x <= grid_max; x+=grid_size)
 	{

@@ -34,8 +34,8 @@ struct D22 : B2{
 	void pvf() override {cout << i << endl;}
 };
 
-void f(B2& b1){
-	b1.pvf();
+void f(B2& b2){
+	b2.pvf();
 };
 
 int main()
